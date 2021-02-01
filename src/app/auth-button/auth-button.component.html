@@ -1,0 +1,19 @@
+<div *ngIf="!user?.isSignedIn()">
+  <button (click)="authenticate()" class="auth">Authenticate</button>
+  <br>
+</div>
+<div *ngIf="user?.isSignedIn()">
+  <button (click)="logOut()" class="auth">Log Out</button>
+  <br>
+</div>
+<br>
+
+Is gapi loaded and ready? {{gapiSetup}}
+<br>
+
+<div *ngIf="error">
+  Error: {{error|json}}
+  <br>
+</div>
+
+<strong>User:</strong> {{user?.getBasicProfile().getEmail() | json}}, {{user?.getBasicProfile().getId() | json}}
